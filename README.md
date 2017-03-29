@@ -6,9 +6,8 @@ QuickView gives you a quick glance at the dataset, just pass the pandas datafram
 
 The project has just begun, I'll be adding more features and extending this slowly. I hope this package helps as a first line of attack to get you off the ground real quick data analysis, though in a very simple and rudimentary way. Ease of use and simplicity will always be the central focus. QuickView has been built using matplotlib. QuickView is made for basic data analyis/visualization and for anything beyond that consider using matplotlib or some other similar advanced data visualization library.
 
-### Things I'm considering to add soon..
-1. Min, Max, Mean, Median Plots
-2. Correlation and Covariance Plots
-3. Outliers Plots
+I'll be adding few more useful plots soon. As of now I'm considering Min, Max, Mean and Median plots.
 
 The package has been published to the Python Package Index at https://pypi.python.org/pypi/QuickView/0.1
+
+Feedback/suggestions most welcome.
