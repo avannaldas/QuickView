@@ -12,4 +12,15 @@ setup(name='QuickView',
           'pandas',
           'matplotlib'
       ],
+      classifiers=[
+          'Development Status :: 3 - Alpha',
+          'Intended Audience :: Developers',
+          'Programming Language :: Python',
+          'Topic :: Scientific/Engineering',
+          'Topic :: Scientific/Engineering :: Information Analysis',
+          'Topic :: Scientific/Engineering :: Visualization',
+          'Topic :: Software Development :: Libraries',
+          'Topic :: Software Development :: Libraries :: Python Modules',
+          'Topic :: Utilities'
+      ],
       zip_safe=False)
