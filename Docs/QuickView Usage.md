@@ -19,8 +19,8 @@ qv.visualize(pd.read_csv('data.csv'))
 |:--------------|:---------|:-----------|
 |df | Yes | Pandas Dataframe object |
 | print_summaries | No, Default: True | Indicates whether the summaries are to printed or not |
-| cat_pthreshold | No, Default: 5 | Percentage of Unique values in a text column below which, a column is to be considered as categorical |
-| cat_cthreshold | No, Default: -1 | Count of Unique values in a text column below which, a column is to be considered as categorical |
+| cat_pthreshold | No, Default: 5 | Percentage of Unique values in a text column above which, a column is to be considered as categorical |
+| cat_cthreshold | No, Default: -1 | Count of Unique values in a text column above which, a column is to be considered as categorical |
 
 If both _cat_pthreshold_ and _cat_cthreshold_ are provided, a column is considered as categorical if the unique values meet one of the threshold criteria. To ignore one of those, set the value to -1. By default, if unique values less than 5% of the total number of records, the column is considered categorical.
 
