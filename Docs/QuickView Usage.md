@@ -1,9 +1,9 @@
 # __QuickView__
 
 ### Installing QuickView
-QuickView has been published to PyPI [here](https://pypi.python.org/pypi/QuickView/0.1). You can install it with `pip install quickview` or download the tar.gz file from PyPI, extract it and in the extracted directory run `python setup.py install`. 
+QuickView has been published to PyPI [here](https://pypi.python.org/pypi/QuickView/0.1). You can install it with `pip install quickview` or download the tar.gz file from PyPI, extract it and run `python setup.py install` in the extracted directory. 
 
-If you want to try the latest version you can clone this repository, extract and in the extracted folder install with `python setup.py install`. Note that, since this is a new project, this repo will contain an alpha version. I'll keep pushing incrementally to the repo frequently as and when I complete a feature/smallest working incremental unit. I am planning to publish an update to the PyPI once a major milestone is reached. Features not yet updated/published in PyPI are marked with asterisk.
+If you want to try the latest version you can clone this repository, extract and run `python setup.py install` in the extracted directory. Note that, since this is a new project, this repo will contain an alpha version. I'll keep pushing incrementally to the repo frequently as and when I complete a feature/smallest working incremental unit. I am planning to publish an update to the PyPI once a major milestone is reached. Features not yet updated/published in PyPI are marked with asterisk.
 
 ### Using QuickView
 To use QuickView, you just need to import the package and call visualize method passing the pandas dataframe. The method outputs useful summaries about the dataset, plots number of null values colum-wise, number of unique values in categorical columns and (*)correlation matrix of all attributes. The project has just begun and there are more types of plots coming up soon. 
