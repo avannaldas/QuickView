@@ -7,6 +7,7 @@ Author: Abhijit Annaldas (Twitter @avannaldas)
 
 import pandas as _pd
 import matplotlib.pyplot as _plt
+from matplotlib.pyplot import cm
 
 '''Number of rows in the dataframe'''
 row_count = -1
@@ -103,8 +104,13 @@ def visualize(df, print_summaries=True, cat_pthreshold=5, cat_cthreshold=-1):
     _plt.tight_layout()
     _plt.show()
 
-
-    # TODO -- 
-    # Column-wise plot min/max/avg/median/mode of numeric cols - figure with multiple line plots
-    # Plot Correlation and Covariance of a different attributes
-    # Column-wise plot outliers
+    # Correlation Matrix...
+    corr = df.corr()
+    fig, ax = _plt.subplots(figsize=(8, 8))
+    cb = ax.matshow(corr, interpolation='nearest', cmap=cm.Blues)
+    fig.colorbar(cb)
+    _plt.xticks(range(len(corr.columns)), corr.columns, rotation='vertical')
+    _plt.yticks(range(len(corr.columns)), corr.columns)
+    _plt.xlabel('Correlation Matrix')
+    _plt.tight_layout()
+    _plt.show()
