@@ -13,7 +13,7 @@ setup(name='QuickView',
           'matplotlib'
       ],
       classifiers=[
-          'Development Status :: 3 - Beta',
+          'Development Status :: 4 - Beta',
           'Intended Audience :: Developers',
           'Programming Language :: Python',
           'Topic :: Scientific/Engineering',
