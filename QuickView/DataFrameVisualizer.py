@@ -36,6 +36,8 @@ rows_with_nulls = _pd.DataFrame()
 '''Dict of Column names and number of null/na values'''
 columnwise_null_values_count = dict()
 
+'''Pandas dataframe object with min, max, mean and std of all numeric columns'''
+min_max_mean_std = _pd.DataFrame()
 
 '''Indicates whether the visualization is complete, values for all the member variables are updated after visualize() method is complete'''
 loaded = False
@@ -65,25 +67,42 @@ def visualize(df, print_summaries=True, cat_pthreshold=5, cat_cthreshold=-1):
         if df[c].isnull().sum() > 0:
             columnwise_null_values_count[c] = df[c].isnull().sum()
 
+    minSumm = df.min(axis=0, skipna=True, numeric_only=True)
+    maxSumm = df.max(axis=0, skipna=True, numeric_only=True)
+    meanSumm = df.mean(axis=0, skipna=True, numeric_only=True)
+    stdSumm = df.std(axis=0, skipna=True, numeric_only=True)
+    min_max_mean_std = _pd.DataFrame(dict(min=minSumm, max=maxSumm, mean=meanSumm, std=stdSumm), index=stdSumm.index)
+
     loaded = True
 
     if print_summaries == True:
-        print('Here is a summary of the Dataset...')
+        print()
+        print('Here is a summary of the Dataset, aka Quick View :P ...')
+        print()
         print('Rows count: ' + str(row_count))
         print('Columns count: ' + str(column_count))
+        print()
         print('Number of rows having null value(s): ' + str(rows_with_nulls.shape[0]))
+        print()
         print('Numeric Columns: ' + (', '.join(numeric_column_names)))
+        print()
         print('Categorical Columns: ' + (', '.join(categorical_column_names)))
+        print()
         print('Text Columns: ' + (', '.join(text_column_names)))
-
+        print()
         print('Columns with null values...')
         for k, v in columnwise_null_values_count.items():
             print(k + ' : ' + str(v))
 
+        print()
         print('Distinct values in categorical columns...')
         for col, vals in categorical_column_values.items():
             print('{Column Name}: ' + col + ' {Values}: ' + ((', ').join(str(v) for v in vals)))
+            print()
 
+        print('Min, Max, Mean and std...')
+        print(min_max_mean_std)
+        print()
 
     # START PLOTTING
     # Column-wise plot null count
@@ -94,6 +113,7 @@ def visualize(df, print_summaries=True, cat_pthreshold=5, cat_cthreshold=-1):
     _plt.title('Column-wise null value counts')
     _plt.tight_layout()
     _plt.show()
+    print()
 
     # Column-wise plot unique categorical values count
     _plt.bar(range(len(categorical_column_values_count)), categorical_column_values_count.values(), align='center')
@@ -103,6 +123,7 @@ def visualize(df, print_summaries=True, cat_pthreshold=5, cat_cthreshold=-1):
     _plt.title('Categorical Columns and their unique categorical value counts')
     _plt.tight_layout()
     _plt.show()
+    print()
 
     # Correlation Matrix...
     corr = df.corr()
@@ -114,3 +135,4 @@ def visualize(df, print_summaries=True, cat_pthreshold=5, cat_cthreshold=-1):
     _plt.xlabel('Correlation Matrix')
     _plt.tight_layout()
     _plt.show()
+    print()
